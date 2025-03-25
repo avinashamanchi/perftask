@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHS AI Helper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <img src="ehs-logo.png" alt="EHS Logo" class="logo">
+        <h1>Emerald High School AI Helper</h1>
+    </header>
+
+    <main>
+        <div class="chat-container">
+            <div id="chatbox">
+                <p class="bot-text"><strong>Bot:</strong> Hi! How can I help you today?</p>
+            </div>
+            <input id="userInput" type="text" placeholder="Type your question here..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+        <div class="button-container">
+            <button onclick="handleQuickReply('Bell Schedule')">📅 Bell Schedule</button>
+            <button onclick="handleQuickReply('School Events')">🎉 School Events</button>
+            <button onclick="handleQuickReply('Clubs & Activities')">🏆 Clubs & Activities</button>
+            <button onclick="showStaffDirectory()">📚 Staff Directory</button>
+        </div>
+
+        <div id="staff-directory" class="hidden">
+            <input type="text" id="staffSearch" placeholder="Search staff by name or position..." onkeyup="searchStaff()">
+            <ul id="staffList"></ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

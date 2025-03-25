@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #004d00;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.chat-container {
+    background: white;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chatbox {
+    height: 200px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 10px;
+}
+
+.bot-text {
+    background: #004d00;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input {
+    width: 80%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #004d99;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#staffList {
+    text-align: left;
+    padding: 0;
+}
+
+#staffList li {
+    list-style: none;
+    background: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.chat-container {
+    width: 50%;
+    margin: auto;
+    border: 2px solid #007A33; /* EHS Green */
+    border-radius: 10px;
+    padding: 10px;
+    background: #F0F8FF; /* Light Blue */
+    overflow-y: auto;
+    height: 300px;
+}
+
+#chatbox {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.user-text {
+    text-align: right;
+    color: blue;
+}
+
+.bot-text {
+    text-align: left;
+    color: green;
+}
+
+.button-container button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    background: #007A33; /* EHS Green */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#staff-directory {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+#staffSearch {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#staffList {
+    list-style-type: none;
+    padding: 0;
+}
