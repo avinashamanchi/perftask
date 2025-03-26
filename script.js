@@ -1,79 +1,79 @@
-// Predefined chatbot responses
-const responses = {
-    "bell schedule": "The bell schedule is available on the EHS website. School starts at 8:30 AM and ends at 3:30 PM.",
-    "school events": "Upcoming events: Spirit Week, Homecoming Dance, and Parent-Teacher Conference!",
-    "clubs & activities": "EHS offers a variety of clubs like Robotics, Drama, and Chess Club. Check the school's website for more details.",
-    "staff directory": "Click the 'Staff Directory' button to search for staff members.",
+// Bell Schedule Data
+const bellSchedules = {
+    "monday": `
+        <table border="1">
+            <tr><th>Period</th><th>Start Time</th><th>End Time</th><th>Length</th></tr>
+            <tr><td>(Period 0)</td><td>7:15 AM</td><td>8:20 AM</td><td>65 min</td></tr>
+            <tr><td>Period 1</td><td>8:30 AM</td><td>9:29 AM</td><td>59 min</td></tr>
+            <tr><td>Period 2</td><td>9:35 AM</td><td>10:34 AM</td><td>59 min</td></tr>
+            <tr><td>Period 3</td><td>10:40 AM</td><td>11:39 AM</td><td>59 min</td></tr>
+            <tr><td>Period 4</td><td>11:45 AM</td><td>12:44 PM</td><td>59 min</td></tr>
+            <tr><td>LUNCH</td><td>12:44 PM</td><td>1:14 PM</td><td>30 min</td></tr>
+            <tr><td>Period 5</td><td>1:20 PM</td><td>2:19 PM</td><td>59 min</td></tr>
+            <tr><td>Period 6</td><td>2:25 PM</td><td>3:24 PM</td><td>59 min</td></tr>
+            <tr><td>(Period 7)</td><td>3:30 PM</td><td>4:30 PM</td><td>60 min</td></tr>
+        </table>`,
+    "wednesday": `
+        <table border="1">
+            <tr><th>Period</th><th>Start Time</th><th>End Time</th><th>Length</th></tr>
+            <tr><td>Collaboration (Staff Only)</td><td>8:00 AM</td><td>8:55 AM</td><td>55 min</td></tr>
+            <tr><td>Period 1</td><td>9:00 AM</td><td>10:30 AM</td><td>90 min</td></tr>
+            <tr><td>Period 3</td><td>10:36 AM</td><td>12:06 PM</td><td>90 min</td></tr>
+            <tr><td>LUNCH</td><td>12:06 PM</td><td>12:36 PM</td><td>30 min</td></tr>
+            <tr><td>ACCESS Period</td><td>12:42 PM</td><td>1:37 PM</td><td>55 min</td></tr>
+            <tr><td>Period 5</td><td>1:43 PM</td><td>3:13 PM</td><td>90 min</td></tr>
+        </table>`,
+    "thursday": `
+        <table border="1">
+            <tr><th>Period</th><th>Start Time</th><th>End Time</th><th>Length</th></tr>
+            <tr><td>(Period 0)</td><td>7:15 AM</td><td>8:20 AM</td><td>65 min</td></tr>
+            <tr><td>Period 2</td><td>8:30 AM</td><td>10:00 AM</td><td>90 min</td></tr>
+            <tr><td>Period 4</td><td>10:06 AM</td><td>11:36 AM</td><td>90 min</td></tr>
+            <tr><td>LUNCH</td><td>11:36 AM</td><td>12:06 PM</td><td>30 min</td></tr>
+            <tr><td>ACCESS Period</td><td>12:12 PM</td><td>12:57 PM</td><td>45 min</td></tr>
+            <tr><td>Period 6</td><td>1:03 PM</td><td>2:33 PM</td><td>90 min</td></tr>
+            <tr><td>(Period 7)</td><td>2:39 PM</td><td>3:50 PM</td><td>71 min</td></tr>
+        </table>`,
 };
 
-// Function to send user message to the chatbot
-function sendMessage() {
-    let userInput = document.getElementById("userInput").value.toLowerCase().trim();
+// Track whether bot is waiting for a day selection
+let waitingForDay = false;
+
+// Function to send message
+function sendMessage(userInput = null) {
+    let inputField = document.getElementById("userInput");
     let chatbox = document.getElementById("chatbox");
 
-    if (userInput === "") return; // Prevent empty messages
+    let message = userInput ? userInput : inputField.value.toLowerCase().trim();
+    if (message === "") return;
 
-    // Append user message to chatbox
-    chatbox.innerHTML += `<p class="user-text"><strong>You:</strong> ${userInput}</p>`;
+    chatbox.innerHTML += `<p class="user-text"><strong>You:</strong> ${message}</p>`;
 
-    // Check if response exists
-    let botResponse = responses[userInput] || "Sorry, I don't have an answer for that yet.";
-    
-    // Append bot response
-    setTimeout(() => {
-        chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> ${botResponse}</p>`;
-        chatbox.scrollTop = chatbox.scrollHeight; // Auto-scroll to latest message
-    }, 500);
+    if (waitingForDay) {
+        if (bellSchedules[message]) {
+            chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Here is the schedule for ${message.charAt(0).toUpperCase() + message.slice(1)}:</p>`;
+            chatbox.innerHTML += `<p class="bot-text">${bellSchedules[message]}</p>`;
+        } else {
+            chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Please enter a valid day (Monday, Wednesday, Thursday).</p>`;
+        }
+        waitingForDay = false;
+    } else if (message === "bell schedule") {
+        chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Which day do you need the schedule for? (Monday, Wednesday, Thursday)</p>`;
+        waitingForDay = true;
+    } else {
+        chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Sorry, I don't have an answer for that yet.</p>`;
+    }
 
-    document.getElementById("userInput").value = ""; // Clear input field
+    chatbox.scrollTop = chatbox.scrollHeight;
+    inputField.value = "";
 }
 
 // Function for quick reply buttons
-function handleQuickReply(question) {
-    document.getElementById("userInput").value = question;
-    sendMessage();
+function handleQuickReply(message) {
+    sendMessage(message.toLowerCase());
 }
 
-// STAFF DIRECTORY DATA (Example)
-const staff = [
-    { name: "Lenni Velez", position: "Principal" },
-    { name: "Chiharu Kitchens", position: "Assistant Principal" },
-    { name: "Dianna Heise", position: "Head Counselor" },
-    { name: "Pallavi Nandakishore", position: "Counselor" },
-    { name: "Miguel Baez", position: "Computer Science Teacher" },
-    { name: "Rebecca Lee", position: "Math Teacher" },
-];
-
-// Function to show staff directory
-function showStaffDirectory() {
-    document.getElementById("staff-directory").classList.toggle("hidden");
-    displayStaffList();
-}
-
-// Function to display staff list
-function displayStaffList() {
-    let staffList = document.getElementById("staffList");
-    staffList.innerHTML = "";
-    staff.forEach(person => {
-        let li = document.createElement("li");
-        li.textContent = `${person.name} - ${person.position}`;
-        staffList.appendChild(li);
-    });
-}
-
-// Function to search staff
-function searchStaff() {
-    let searchValue = document.getElementById("staffSearch").value.toLowerCase();
-    let filteredStaff = staff.filter(person =>
-        person.name.toLowerCase().includes(searchValue) || 
-        person.position.toLowerCase().includes(searchValue)
-    );
-
-    let staffList = document.getElementById("staffList");
-    staffList.innerHTML = "";
-    filteredStaff.forEach(person => {
-        let li = document.createElement("li");
-        li.textContent = `${person.name} - ${person.position}`;
-        staffList.appendChild(li);
-    });
+// Help Center
+function openHelpCenter() {
+    alert("Welcome to the Help Center! Visit the school website or contact admin for support.");
 }

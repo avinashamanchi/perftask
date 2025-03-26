@@ -15,6 +15,7 @@
 
     <main>
         <div class="chat-container">
+            <img src="ai-logo.jpeg" alt="AI Logo" class="ai-logo">
             <div id="chatbox">
                 <p class="bot-text"><strong>Bot:</strong> Hi! How can I help you today?</p>
             </div>
@@ -23,14 +24,16 @@
         </div>
 
         <div class="button-container">
-            <button onclick="handleQuickReply('Bell Schedule')">📅 Bell Schedule</button>
-            <button onclick="handleQuickReply('School Events')">🎉 School Events</button>
-            <button onclick="handleQuickReply('Clubs & Activities')">🏆 Clubs & Activities</button>
-            <button onclick="showStaffDirectory()">📚 Staff Directory</button>
+            <button onclick="handleQuickReply('Bell Schedule')">📅 Bell</button>
+            <button onclick="handleQuickReply('School Events')">🎉 Events</button>
+            <button onclick="handleQuickReply('Clubs')">🏆 Clubs</button>
+            <button onclick="showStaffDirectory()">📚 Staff</button>
+            <button onclick="openHelpCenter()">❓ Help</button>
         </div>
+        
 
         <div id="staff-directory" class="hidden">
-            <input type="text" id="staffSearch" placeholder="Search staff by name or position..." onkeyup="searchStaff()">
+            <input type="text" id="staffSearch" placeholder="Search staff..." onkeyup="searchStaff()">
             <ul id="staffList"></ul>
         </div>
     </main>

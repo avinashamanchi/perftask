@@ -1,105 +1,47 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8f0;
+    font-family: "Arial", sans-serif;
+    background-color: #F8F9FA;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #004d00;
+    background-color: #007A33;
     color: white;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .logo {
-    height: 50px;
+    height: 40px;
     margin-right: 10px;
 }
 
+.ai-logo {
+    height: 50px;
+    display: block;
+    margin: 10px auto;
+}
+
 .chat-container {
     background: white;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 400px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 380px;
     margin: auto;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: 2px solid #007A33;
 }
 
 #chatbox {
-    height: 200px;
+    height: 250px;
     overflow-y: auto;
     text-align: left;
     padding: 10px;
-}
-
-.bot-text {
-    background: #004d00;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-input {
-    width: 80%;
-    padding: 8px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #004d99;
-}
-
-.button-container {
-    margin-top: 20px;
-}
-
-.hidden {
-    display: none;
-}
-
-#staffList {
-    text-align: left;
-    padding: 0;
-}
-
-#staffList li {
-    list-style: none;
-    background: white;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 5px;
-}
-.chat-container {
-    width: 50%;
-    margin: auto;
-    border: 2px solid #007A33; /* EHS Green */
-    border-radius: 10px;
-    padding: 10px;
-    background: #F0F8FF; /* Light Blue */
-    overflow-y: auto;
-    height: 300px;
-}
-
-#chatbox {
-    max-height: 250px;
-    overflow-y: auto;
 }
 
 .user-text {
@@ -112,16 +54,25 @@ button:hover {
     color: green;
 }
 
+.button-container {
+    margin-top: 15px;
+}
+
 .button-container button {
-    display: block;
-    width: 100%;
-    margin: 5px 0;
-    padding: 10px;
+    display: inline-block;
+    width: auto;
+    padding: 8px 15px;
+    font-size: 14px;
     border: none;
-    background: #007A33; /* EHS Green */
+    background: #007A33;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #005A24;
 }
 
 .hidden {
