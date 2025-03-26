@@ -1,3 +1,4 @@
+
 // Bell Schedule Data
 const bellSchedules = {
     "monday": `
