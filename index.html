@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHS AI Helper</title>
@@ -27,17 +26,286 @@
 
         <div class="button-container">
             <button onclick="handleQuickReply('Bell Schedule')">📅 Bell</button>
-            <button onclick="handleQuickReply('School Events')">🎉 Events</button>
-            <button onclick="handleQuickReply('Clubs')">🏆 Clubs</button>
+            <button onclick="showClassDirectory('School Classes')">Classes</button>
+            <button onclick="showClubDirectory('Clubs')">🏆 Clubs</button>
             <button onclick="showStaffDirectory()">📚 Staff</button>
             <button onclick="openHelpCenter()">❓ Help</button>
         </div>
         
-
         <div id="staff-directory" class="hidden">
             <input type="text" id="staffSearch" placeholder="Search staff..." onkeyup="searchStaff()">
-            <ul id="staffList"></ul>
+            <ul id="staffList">
+        
+                <li><strong>Administration</strong></li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Lenni Velez - Principal</button>
+                    <div class="staff-details hidden">MA Math Education - Stanford University<br>BS Mathematics - CSU Hayward<br>Extension: x4801</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Chiharu Kitchens - Assistant Principal</button>
+                    <div class="staff-details hidden">Experienced leader with a focus on student development<br>Extension: x4802</div>
+                </li>
+        
+                <li><strong>Counselors</strong></li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Dianna Heise - Head Counselor</button>
+                    <div class="staff-details hidden">MS Counseling - San Francisco State University<br>BS Advertising - San Jose State University, PPS School Counseling</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Pallavi Nandakishore - Counselor</button>
+                    <div class="staff-details hidden">Specializes in academic advising and student support services</div>
+                </li>
+        
+                <li><strong>Office Staff</strong></li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Samantha Bacher - College & Career</button>
+                    <div class="staff-details hidden">Passionate about helping students explore college and career opportunities<br>Extension: x4860</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Linda Bergamo Guido - ASB Secretary</button>
+                    <div class="staff-details hidden">Experienced in supporting student body organizations and event planning<br>Extension: x4908</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Ms. Ruth Cunniffe - Registrar/Attendance</button>
+                    <div class="staff-details hidden">Oversees student records and ensures accurate attendance tracking<br>Extension: x4806</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Dominique De Vera - Media Technician</button>
+                    <div class="staff-details hidden">Supports the technology needs of the media department<br>Extension: x4818</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Kathy Houk - Health Services Assistant</button>
+                    <div class="staff-details hidden">Provides health-related support and resources for students<br>Extension: x4815</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Felicia Leopold - Data Processor</button>
+                    <div class="staff-details hidden">Handles student data and ensures accurate record-keeping<br>Extension: x4807</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Carrie Moore - Principal's Secretary</button>
+                    <div class="staff-details hidden">Provides administrative support to the principal’s office<br>Extension: x4805</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Savannah O'Callaghan Jones - Account Tech</button>
+                    <div class="staff-details hidden">B.A. in Human Services, helping to manage school financials<br>Extension: x4907</div>
+                </li>
+                <li><button class="staff-name" onclick="toggleDetails(this)">Noureen Tariq - Counseling/Wellness Secretary</button>
+                    <div class="staff-details hidden">Assists in organizing wellness initiatives for students<br>Extension: x4811</div>
+                </li>                
+        
+                <li><strong>Teachers</strong></li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Miguel Baez - Computer Science Teacher</button>
+    <div class="staff-details hidden">B.S. Computer Science - California State University, East Bay<br>Passionate about technology and inspiring future coders</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Priscilla Barton - Engineering / Yearbook Teacher</button>
+    <div class="staff-details hidden">Specializes in engineering principles and yearbook production</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Chris Branson - Physical Education Teacher</button>
+    <div class="staff-details hidden">Masters from University of San Francisco<br>Focus on physical fitness and health education<br>BS Kinesiology from CSU East Bay</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Eleana Brumage - Science Teacher</button>
+    <div class="staff-details hidden">Dedicated to fostering student interest in the sciences</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Sharon Chen - World Language Teacher</button>
+    <div class="staff-details hidden">Specializes in teaching foreign languages and cultural awareness</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Alisha Douglass - Art Teacher</button>
+    <div class="staff-details hidden">Focuses on fostering creativity through visual arts</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Richard Dunbar - Special Education Teacher</button>
+    <div class="staff-details hidden">Dedicated to working with students with diverse learning needs</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Nicole Faggiano - Science Teacher</button>
+    <div class="staff-details hidden">Committed to teaching biology and environmental science</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Tracy Foster - Science Teacher</button>
+    <div class="staff-details hidden">Passionate about helping students understand the natural world</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Brian Glaze - Activities Director, Science Teacher</button>
+    <div class="staff-details hidden">Leads school activities while teaching science<br>Promotes student engagement through extracurriculars</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Laura Gordon Reska - English Teacher</button>
+    <div class="staff-details hidden">Focused on developing student literacy and writing skills</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Jennifer Heath - Contemporary Health Teacher</button>
+    <div class="staff-details hidden">Teaches health education, promoting wellness and healthy living</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Carter Imai - Social Science Lead Teacher</button>
+    <div class="staff-details hidden">BA in History, focuses on history and social sciences education</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Valerie Jacob - World Language Teacher</button>
+    <div class="staff-details hidden">Specializes in language acquisition and multicultural education</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Eunah Kang - Science Teacher</button>
+    <div class="staff-details hidden">Passionate about teaching life sciences and environmental sustainability</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Athena Karantzalis - Video Production / English Teacher</button>
+    <div class="staff-details hidden">Combines a love for video production and English literature</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Matthew Kirby - Physical Education Teacher</button>
+    <div class="staff-details hidden">Promotes physical health through fitness and sports education</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Rebecca Lee - Math Teacher</button>
+    <div class="staff-details hidden">Focuses on creating a dynamic and interactive math classroom</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Jill Lemmer - Contemporary Health Teacher</button>
+    <div class="staff-details hidden">MPH from Baylor University, BS in Nutrition from Cal Poly SLO<br>Promotes health education through practical learning</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Chris MacDougall - Contemporary Health Lead Teacher</button>
+    <div class="staff-details hidden">Master’s in Education from UC Santa Barbara<br>Specializes in health and wellness programs for students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Purvi Mehta - Science Teacher</button>
+    <div class="staff-details hidden">Focused on promoting environmental science and sustainability</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Jisun Moon - World Language Teacher</button>
+    <div class="staff-details hidden">Specializes in language immersion and cultural exchange</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Subbulakshmi Palanichamy - Science Teacher</button>
+    <div class="staff-details hidden">Passionate about creating engaging lessons in biology and chemistry</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Veronica Palma - World Language Teacher</button>
+    <div class="staff-details hidden">Focused on language proficiency and cultural fluency</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Lindsay Pappalardo - Math Teacher</button>
+    <div class="staff-details hidden">Encourages students to explore mathematical concepts through problem-solving</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Monique Paris - Special Education Teacher, Athletic Director</button>
+    <div class="staff-details hidden">Dedicated to supporting students with disabilities and promoting athletics</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Constance Peinado - English Lead Teacher</button>
+    <div class="staff-details hidden">M.A. in English Literature, M.A. in Secondary Education<br>Focused on creating a supportive and challenging English curriculum</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Mr. Putman - Math Teacher</button>
+    <div class="staff-details hidden">Specializes in advanced mathematics and problem-solving<br>UCSD - Mathematics</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Patricia Ramsay - Science Lead Teacher</button>
+    <div class="staff-details hidden">MPH in Epidemiology/Biostatistics from UC Berkeley<br>Focuses on public health education in science</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Mrs. Jaime Roberts - Math Lead Teacher</button>
+    <div class="staff-details hidden">MS Mathematics Secondary Education, BS Mathematics Secondary Education<br>Expert in creating effective math learning strategies</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Jason Rockwell - Special Education Lead Teacher, Boys Basketball Coach</button>
+    <div class="staff-details hidden">Focuses on helping students with special needs achieve their potential</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Gregory Rodriguez - Social Science Teacher</button>
+    <div class="staff-details hidden">Passionate about teaching history and social sciences to diverse student groups</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Marnie Santoyo - English Teacher</button>
+    <div class="staff-details hidden">Works to foster a love for literature and reading in students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Mrs. Rocio Serrano - World Language Teacher, Spanish Honors Society Advisor</button>
+    <div class="staff-details hidden">B.A. in Modern Languages - Spanish<br>Passionate about teaching Spanish and fostering cultural awareness</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Joy Sherratt - Contemporary Health Teacher</button>
+    <div class="staff-details hidden">Focuses on comprehensive health education and wellness for students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Mrs. Koren Soule - World Language Lead Teacher</button>
+    <div class="staff-details hidden">MA in Educational Leadership, B.A. Spanish<br>Leads language department initiatives and curriculum development</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">James Stevens - Math Teacher</button>
+    <div class="staff-details hidden">Dedicated to helping students understand and enjoy math concepts</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Geeta Subramonian - English Teacher</button>
+    <div class="staff-details hidden">Passionate about literature and encouraging analytical thinking in students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Mrs. Michelle Tomilloso - Physical Education Teacher, Athletic Director</button>
+    <div class="staff-details hidden">Focuses on student health and physical development through sports</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Mr. Jasper Tran - Band and Orchestra Director</button>
+    <div class="staff-details hidden">B.M. Music (Concentration in Education)<br>Inspires students to pursue musical excellence in band and orchestra</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Kyle Voeller - English Teacher</button>
+    <div class="staff-details hidden">Focuses on developing student writing and critical reading skills</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Michelle Wang - Math Teacher</button>
+    <div class="staff-details hidden">Dedicated to helping students excel in mathematical concepts and problem-solving</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Amanda Werner - English Teacher, ELD Coordinator</button>
+    <div class="staff-details hidden">B.A. English Literature from Western Washington University<br>Coordinates English language development for diverse learners</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Veronica Wienholz - Social Science Teacher, AP Seminar</button>
+    <div class="staff-details hidden">Focuses on advanced coursework in social sciences for high-achieving students</div>
+</li>
+
+        
+                <li><strong>Specialists</strong></li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Susan Carroll - Speech Language Pathologist</button>
+    <div class="staff-details hidden">M.S., CCC-SLP<br>Focused on language and communication development for students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Leor Levin - Wellness Center</button>
+    <div class="staff-details hidden">Supports student mental health and wellness initiatives</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Siao Charn Ling - Psychologist</button>
+    <div class="staff-details hidden">Ph.D., M.A. in Education - School Psychology from UC Berkeley<br>Specializes in student mental health and developmental psychology</div>
+</li>
+
+<li><strong>Support Staff</strong></li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Mario Alvarez Escobar - Technology Technician</button>
+    <div class="staff-details hidden">Supports school-wide technology systems and troubleshooting</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Kenneth Carter - Instructional Assistant</button>
+    <div class="staff-details hidden">Assists teachers in providing personalized support to students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Karen Chamberlain - Campus Supervisor</button>
+    <div class="staff-details hidden">Ensures campus safety and student engagement during the school day</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Sailakshmi Chitta - Instructional Assistant</button>
+    <div class="staff-details hidden">Supports classroom activities and assists students with learning needs</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">June Cook - Instructional Assistant</button>
+    <div class="staff-details hidden">Provides assistance to teachers and supports student learning</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Kate Gillilan - Campus Supervisor</button>
+    <div class="staff-details hidden">Helps ensure a safe and organized campus environment</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Louise Guzman - Campus Supervisor</button>
+    <div class="staff-details hidden">Ensures that students are engaged and safe during school activities</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Sophie Jia - Instructional Assistant</button>
+    <div class="staff-details hidden">Provides classroom support and helps with student development</div>
+</li>
+
+<li><strong>Maintenance</strong></li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Deysi Ayala - Custodian</button>
+    <div class="staff-details hidden">Maintains clean and safe school facilities</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Cassarah Jones - Custodian</button>
+    <div class="staff-details hidden">Helps ensure the cleanliness and upkeep of school buildings</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Ana Martinez - Custodian</button>
+    <div class="staff-details hidden">Dedicated to maintaining a clean and safe learning environment</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Carly Mendoza - Custodian</button>
+    <div class="staff-details hidden">Focuses on ensuring the cleanliness of the school premises</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Jorge Milan - Custodian</button>
+    <div class="staff-details hidden">Assists in maintaining a clean and organized campus</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Ashley Saldivar - Custodian</button>
+    <div class="staff-details hidden">Responsible for maintaining a safe and sanitary school environment</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Richard Van Horn - Custodian</button>
+    <div class="staff-details hidden">Ensures all school areas are clean and well-maintained</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Joel Wheeler - Grounds</button>
+    <div class="staff-details hidden">Takes care of school grounds and outdoor spaces</div>
+</li>
+
+<li><strong>Nutrition</strong></li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Daniel Cummins - Nutrition Staff</button>
+    <div class="staff-details hidden">Supports the school’s food services to ensure students are well-nourished</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Sarira Gharavi - Nutrition Staff</button>
+    <div class="staff-details hidden">Assists in the preparation and serving of healthy meals for students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Noelia Gimeno - Nutrition Staff</button>
+    <div class="staff-details hidden">Helps with meal preparation and ensures nutrition standards are met</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Sherrie Harleman - Nutrition Lead</button>
+    <div class="staff-details hidden">Leads the food service department and ensures quality meals for students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Irene Susanti - Nutrition Staff</button>
+    <div class="staff-details hidden">Supports the preparation and distribution of nutritious meals</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Serina Wong - Nutrition Staff</button>
+    <div class="staff-details hidden">Assists in serving nutritious meals to students</div>
+</li>
+<li><button class="staff-name" onclick="toggleDetails(this)">Jeffrey Zimmerman - Nutrition Lead</button>
+    <div class="staff-details hidden">Manages food service operations and ensures meal quality and safety</div>
+</li>
+
+        
+            </ul>
         </div>
+        
     </main>
 
     <script src="script.js"></script>
