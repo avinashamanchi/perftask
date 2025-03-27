@@ -96,10 +96,15 @@ button:hover {
     display: none;
 }
 
+.hidden {
+    display: none;
+}
+
 #staff-directory {
     width: 60%;
     margin: auto;
     text-align: center;
+    padding: 10px;
 }
 
 #staffSearch {
@@ -112,3 +117,114 @@ button:hover {
     list-style-type: none;
     padding: 0;
 }
+
+.staff-name {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #007A33;
+    padding: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.staff-details {
+    display: none;
+    margin-left: 20px;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    border-left: 2px solid #007A33;
+}
+
+.staff-details.hidden {
+    display: none;
+}
+
+.staff-details:not(.hidden) {
+    display: block;
+}
+#clubs-directory {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+#clubsSearch {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#clubsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.club-name {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #007A33;
+    padding: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.club-details {
+    display: none;
+    margin-left: 20px;
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+    border-left: 2px solid #007A33;
+}
+
+.club-details.hidden {
+    display: none;
+}
+
+.club-details:not(.hidden) {
+    display: block;
+}
+
+/* Dropdown button styles */
+button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  /* Dropdown content styles */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  button:active {
+    background-color: #ccc;
+  }
+  
+  .dropdown-content button {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Show the dropdown when hovering over the button */
+  button:hover + .dropdown-content {
+    display: block;
+  }
+  
