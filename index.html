@@ -24,15 +24,64 @@
             <button onclick="sendMessage()">Send</button>
         </div>
 
+
         <div class="button-container">
             <button onclick="handleQuickReply('Bell Schedule')">📅 Bell</button>
-            <button onclick="showClassDirectory('School Classes')">Classes</button>
-            <button onclick="showClubDirectory('Clubs')">🏆 Clubs</button>
+            <button onclick="showClassDirectory()">📘 Classes</button>
             <button onclick="showStaffDirectory()">📚 Staff</button>
             <button onclick="openHelpCenter()">❓ Help</button>
+            <button onclick="showMap()">🗺️ Map</button>
+            <button onclick="showNavigation()">🧭 Navigation</button> <!-- ✅ New Button -->
         </div>
         
+        <div id="class-directory" class="hidden">
+            <input type="text" id="classSearch" placeholder="Search classes..." onkeyup="searchClasses()">
+            <ul id="classList" style="text-align:left;">
+                <li><strong>Core Subjects</strong></li>
+                <li><strong>English (1–4, AP, Honors)</strong> – Covers literature, composition, and analytical writing.</li>
+                <li><strong>Mathematics</strong> – Algebra, Geometry, Trigonometry, Precalculus, Calculus, AP Calculus, Statistics, AP Statistics, Financial Applications – Develops mathematical reasoning and problem-solving skills.</li>
+                <li><strong>Science</strong> – Biology, Chemistry, Physics, Environmental Science, AP Science Courses – Focus on lab-based scientific inquiry.</li>
+                <li><strong>Social Science</strong> – World History, U.S. History, Civics, Economics, AP Social Science Courses – Studies history, government, and societal structures.</li>
+        
+                <li><strong>World Languages</strong></li>
+                <li>American Sign Language (ASL) 1–4 – Full immersion in ASL communication and Deaf culture.</li>
+                <li>Chinese Mandarin 1–4, AP – Develops Mandarin language skills.</li>
+                <li>French 1–4, AP – Grammar, vocabulary, conversation, and culture.</li>
+                <li>Spanish 1–4, AP – Builds proficiency in Spanish.</li>
+                <li>Spanish for Heritage Speakers 1 & 2 – Enhances formal Spanish proficiency for native speakers.</li>
+        
+                <li><strong>Visual & Performing Arts</strong></li>
+                <li>Drawing, Painting, Printmaking, 2D & 3D Design, Ceramics – Hands-on fine arts courses.</li>
+                <li>Graphic Publications (Yearbook) – Photography, writing, layout.</li>
+                <li>Video Production 1–3 – Filming and editing.</li>
+                <li>Animation & Motion Graphics – Digital animation and design.</li>
+                <li>Theater, Choir, Band, Orchestra, Dance – Performance-based arts education.</li>
+                <li>AP 2-D & 3-D Art and Design – College-level visual arts.</li>
+        
+                <li><strong>Career & Technical Education (CTE)</strong></li>
+                <li>Engineering Pathway – Intro to Engineering, Environmental Sustainability, Digital Electronics, Civil Engineering, Cybersecurity.</li>
+                <li>Computer Science – Intro, AP Principles, AP Computer Science A, Cybersecurity.</li>
+                <li>ROP Video Game Art & Design – Game design and 3D modeling.</li>
+        
+                <li><strong>Regional Occupational Program (ROP)</strong></li>
+                <li>Auto Body Repair 1 & 2 – Vehicle repair and painting.</li>
+                <li>Automotive Technology – Vehicle maintenance.</li>
+                <li>Criminal Justice Academy – Law enforcement careers.</li>
+                <li>Medical Occupations / Nursing Careers – Healthcare fields.</li>
+                <li>Developmental Psychology of Children 1 & 2 – Child development.</li>
+                <li>Emergency Medical Responder – First aid and emergency care.</li>
+                <li>AP Environmental Science (ROP) – Environmental issues.</li>
+                <li>Internet Engineering & Cybersecurity – Networking and digital security.</li>
+        
+                <li><strong>Electives & Other Offerings</strong></li>
+                <li>AVID (9–12) – College preparation and academic support.</li>
+                <li>Ethnic Studies – Cultures and societal systems.</li>
+                <li>AP Capstone (AP Seminar & AP Research) – Research and presentation skills.</li>
+            </ul>
+        </div>
+          
         <div id="staff-directory" class="hidden">
+            
             <input type="text" id="staffSearch" placeholder="Search staff..." onkeyup="searchStaff()">
             <ul id="staffList">
         
