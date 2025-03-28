@@ -51,12 +51,15 @@ const bellSchedules = {
     "friday": `
         <table border="1">
             <tr><th>Period</th><th>Start Time</th><th>End Time</th><th>Length</th></tr>
-            <tr><td>Collaboration (Staff Only)</td><td>8:00 AM</td><td>8:55 AM</td><td>55 min</td></tr>
-            <tr><td>Period 1</td><td>9:00 AM</td><td>10:30 AM</td><td>90 min</td></tr>
-            <tr><td>Period 3</td><td>10:36 AM</td><td>12:06 PM</td><td>90 min</td></tr>
-            <tr><td>LUNCH</td><td>12:06 PM</td><td>12:36 PM</td><td>30 min</td></tr>
-            <tr><td>ACCESS Period</td><td>12:42 PM</td><td>1:37 PM</td><td>55 min</td></tr>
-            <tr><td>Period 5</td><td>1:43 PM</td><td>3:13 PM</td><td>90 min</td></tr>
+            <tr><td>(Period 0)</td><td>7:15 AM</td><td>8:20 AM</td><td>65 min</td></tr>
+            <tr><td>Period 1</td><td>8:30 AM</td><td>9:29 AM</td><td>59 min</td></tr>
+            <tr><td>Period 2</td><td>9:35 AM</td><td>10:34 AM</td><td>59 min</td></tr>
+            <tr><td>Period 3</td><td>10:40 AM</td><td>11:39 AM</td><td>59 min</td></tr>
+            <tr><td>Period 4</td><td>11:45 AM</td><td>12:44 PM</td><td>59 min</td></tr>
+            <tr><td>LUNCH</td><td>12:44 PM</td><td>1:14 PM</td><td>30 min</td></tr>
+            <tr><td>Period 5</td><td>1:20 PM</td><td>2:19 PM</td><td>59 min</td></tr>
+            <tr><td>Period 6</td><td>2:25 PM</td><td>3:24 PM</td><td>59 min</td></tr>
+            <tr><td>(Period 7)</td><td>3:30 PM</td><td>4:30 PM</td><td>60 min</td></tr>
         </table>`,
 };
 
@@ -119,6 +122,51 @@ function toggleDetails(button) {
     details.classList.toggle("hidden");
 }
 
+function showMap() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Here's the campus map:</p>`;
+    chatbox.innerHTML += `<p class="bot-text"><img src="images.jpg" alt="Campus Map" style="max-width:100%; height:auto;" /></p>`;
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+function showClassDirectory() {
+    const directory = document.getElementById("class-directory");
+    directory.classList.toggle("hidden");
+}
+
+function searchClasses() {
+    let input = document.getElementById("classSearch").value.toLowerCase();
+    let classItems = document.querySelectorAll("#classList li");
+
+    classItems.forEach(item => {
+        if (item.innerText.toLowerCase().includes(input) || item.classList.contains("category-header")) {
+            item.style.display = "";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+// Listen for Enter key press in input box
+document.addEventListener("DOMContentLoaded", () => {
+    const inputField = document.getElementById("userInput");
+    inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+});
+function showNavigation() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.innerHTML += `
+        <p class="bot-text"><strong>Bot:</strong> How to navigate:</p>
+        <p class="bot-text">📅 For bell schedule, click the button and enter which day you want in the chatbot box.</p>
+        <p class="bot-text">📘 For classes, click the Classes button. Click it again to hide, then choose your next option.</p>
+        <p class="bot-text">📚 For staff, click the Staff button. Click again to hide before using another section.</p>
+        <p class="bot-text">🗺️ For the map, click the Map button and look in the chatbox to view it.</p>
+    `;
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
 // Staff Search Function
 function searchStaff() {
     let input = document.getElementById("staffSearch").value.toLowerCase();
@@ -132,5 +180,3 @@ function searchStaff() {
         }
     });
 }
-
-
