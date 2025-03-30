@@ -76,17 +76,24 @@ function sendMessage(userInput = null) {
 
     chatbox.innerHTML += `<p class="user-text"><strong>You:</strong> ${message}</p>`;
 
+    // List of greeting variations
+    const greetings = ["hi", "hello", "hey", "yo", "greetings", "hola", "bonjour", "howdy", "what's up", "sup"];
+
     if (waitingForDay) {
         if (bellSchedules[message]) {
             chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Here is the schedule for ${message.charAt(0).toUpperCase() + message.slice(1)}:</p>`;
             chatbox.innerHTML += `<p class="bot-text">${bellSchedules[message]}</p>`;
+            waitingForDay = false; // Reset the flag after a valid response
         } else {
-            chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Please enter a valid day (Monday, Tuesday, Wednesday, Thursday, Friday).</p>`;
+            chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Invalid day. Please enter one of the following: <strong>Monday, Tuesday, Wednesday, Thursday, Friday</strong>.</p>`;
+            return; // Do not reset waitingForDay so the user can retry
         }
-        waitingForDay = false;
     } else if (message === "bell schedule") {
         chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Which day do you need the schedule for? (Monday, Tuesday, Wednesday, Thursday, Friday)</p>`;
         waitingForDay = true;
+    } else if (greetings.some(greeting => message.includes(greeting))) {
+        chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Hi there! Please use the buttons to communicate with me. Start off by pressing the Navigation button.</p>`;
+        chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> If you'd like a hint, click the "Show Hint" button below.</p>`;
     } else {
         chatbox.innerHTML += `<p class="bot-text"><strong>Bot:</strong> Sorry, I don't have an answer for that yet.</p>`;
     }
@@ -95,6 +102,19 @@ function sendMessage(userInput = null) {
     inputField.value = "";
 }
 
+
+
+// Listen for Enter key press in input box
+document.addEventListener("DOMContentLoaded", () => {
+    const inputField = document.getElementById("userInput");
+    inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+});
+
 // Function for quick reply buttons
 function handleQuickReply(message) {
     sendMessage(message.toLowerCase());
@@ -102,7 +122,7 @@ function handleQuickReply(message) {
 
 // Help Center
 function openHelpCenter() {
-    alert("Welcome to the Help Center! Visit the school website or contact admin for support.");
+    alert("This website is newly made and mistakes do come up! Please feel free to contact us at amanchi4850@mydusd.org and verma5255@mydusd.org if you need help. Thanks!");
 }
 
 function toggleDetails(button) {
@@ -179,4 +199,19 @@ function searchStaff() {
             item.style.display = "none";
         }
     });
+}
+
+function toggleHint() {
+    const hintDropdown = document.getElementById("hintDropdown");
+    const hintButton = document.getElementById("hintButton");
+
+    // Toggle the visibility of the hint dropdown
+    hintDropdown.classList.toggle("hidden");
+
+    // Change the button text based on visibility
+    if (hintDropdown.classList.contains("hidden")) {
+        hintButton.textContent = "Show Hint";
+    } else {
+        hintButton.textContent = "Hide Hint";
+    }
 }
