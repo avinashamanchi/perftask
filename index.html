@@ -4,34 +4,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EHS AI Helper</title>
+    <title>EHS Informational Student Helper</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
         <img src="ehs-logo.png" alt="EHS Logo" class="logo">
-        <h1>Emerald High School AI Helper</h1>
+        <h1>Emerald High School Student Help</h1>
     </header>
 
     <main>
         <div class="chat-container">
             <img src="ai-logo.jpeg" alt="AI Logo" class="ai-logo">
             <div id="chatbox">
-                <p class="bot-text"><strong>Bot:</strong> Hi! How can I help you today?</p>
+                <p class="bot-text"><strong>AERO:</strong> Hey Aeronauts! How can I assist you today?</p>
+                <button id="hintButton" onclick="toggleHint()">Show Hint</button>
+                <div id="hintDropdown" class="hint-dropdown hidden">
+                    <p>To start:</p>
+                    <ul>
+                        <li>"Start off by greeting the AI using any greeting"</li>
+                    </ul>
+                </div>
             </div>
             <input id="userInput" type="text" placeholder="Type your question here..." />
             <button onclick="sendMessage()">Send</button>
         </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
 
         <div class="button-container">
-            <button onclick="handleQuickReply('Bell Schedule')">📅 Bell</button>
-            <button onclick="showClassDirectory()">📘 Classes</button>
-            <button onclick="showStaffDirectory()">📚 Staff</button>
-            <button onclick="openHelpCenter()">❓ Help</button>
-            <button onclick="showMap()">🗺️ Map</button>
-            <button onclick="showNavigation()">🧭 Navigation</button> <!-- ✅ New Button -->
+            <button onclick="showNavigation()"> Navigation </button> 
+            <button onclick="showStaffDirectory()"> Staff </button>
+            <button onclick="showClassDirectory()"> Classes </button>
+            <button onclick="handleQuickReply('Bell Schedule')"> Bell </button>
+            <button onclick="showMap()"> Map </button>
+            <button onclick="openHelpCenter()"> Help </button>
         </div>
         
         <div id="class-directory" class="hidden">
