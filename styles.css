@@ -228,3 +228,29 @@ button {
     display: block;
   }
   
+/* Add this to your styles.css */
+.hint-dropdown {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+#hintButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#hintButton:hover {
+    background-color: #45a049;
+}
