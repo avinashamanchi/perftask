@@ -122,7 +122,7 @@ function handleQuickReply(message) {
 
 // Help Center
 function openHelpCenter() {
-    alert("This website is newly made and mistakes do come up! Please feel free to contact us at amanchi4850@mydusd.org and verma5255@mydusd.org if you need help. Thanks!");
+    alert("This website is newly made by Akshat Verma and Avinash Amanchi as part of our CSP performance task. Mistakes do come up,  please feel free to contact us at amanchi4850@mydusd.org and verma5255@mydusd.org if you need help. Thanks!");
 }
 
 function toggleDetails(button) {
